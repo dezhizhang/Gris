@@ -14,6 +14,9 @@ public class Stone : MonoBehaviour
     // 所有的泪点
     private Transform[] roadsTrans;
 
+    // 生成眼汨的数量
+    private int _tearNum;
+
 
     private void Start()
     {
@@ -22,10 +25,33 @@ public class Stone : MonoBehaviour
         Transform pointTrans = transform.Find("Points");
         roadsTrans = new Transform[pointTrans.childCount];
 
-        for (int i = 0; i < roadsTrans.Length; i++)
+        // 定时生成眼
+        Invoke("StartCreatingTears", 6);
+    }
+
+    private void Update()
+    {
+        if (_tearNum >= 5)
         {
-            // 获取所有的路点
-            roadsTrans[i] = pointTrans.GetChild(i);
+            _tearNum = 0;
+            CancelInvoke("StartCreatingTears");
         }
+    }
+
+    /// <summary>
+    /// 生成眼汨的方法
+    /// </summary>
+    private void StartCreatingTears()
+    {
+        InvokeRepeating("CreateTear", 0, 2);
+    }
+
+    /// <summary>
+    ///  生成眼汨
+    /// </summary>
+    private void CreateTear()
+    {
+        _tearNum++;
+        Instantiate(_tearsGo, roadsTrans[0]);
     }
 }
