@@ -1,0 +1,82 @@
+# =============== Unity Generated ===============
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# Unity Cache
+sysinfo.txt
+*.stacktrace
+
+# Unity build result folders
+[Mm]emoryCaptures/
+Assets/StreamingAssets/aa.meta
+Assets/StreamingAssets/aa/*
+Assets/StreamingAssets/com.unity.addressables/*
+Assets/StreamingAssets/com.unity.addressables.meta
+
+# Auto-generated VS/JetBrains IDE files
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Unity crash logs
+sysinfo.txt
+*.stacktrace
+
+# Unity Collaborate
+.collab/
+
+# Addressable Asset System
+Assets/AddressableAssetsData/*
+!/Assets/AddressableAssetsData/*.asset
+!/Assets/AddressableAssetsData/*.meta
+
+# Generated Lighting data
+LightingData.asset
+*/Lightmap*-comp*
+*/LightmapSnapshot.asset
+*/ReflectionProbe*-comp*
+
+# Exclude personal settings
+*.prefs
+*.pidb.meta
+*.sln.meta
+*.csproj.meta
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Logs
+*.log
+
+# Crash reports
+sysinfo.txt
+
+# Package manager cache
+Packages/manifest.json
+Packages/packages-lock.json
+
