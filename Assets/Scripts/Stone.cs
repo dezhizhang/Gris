@@ -20,10 +20,17 @@ public class Stone : MonoBehaviour
 
     private void Start()
     {
-        // 加载文件for
-        _tearsGo = Resources.Load<GameObject>("Prefabs/tears");
+        // // 加载文件for
+        _tearsGo = Resources.Load<GameObject>("Prefabs/Tear");
+        Debug.Log(_tearsGo);
+        
         Transform pointTrans = transform.Find("Points");
         roadsTrans = new Transform[pointTrans.childCount];
+
+        for (int i = 0; i < roadsTrans.Length; i++)
+        {
+            roadsTrans[i] = pointTrans.GetChild(i);
+        }
 
         // 定时生成眼
         Invoke("StartCreatingTears", 6);
@@ -33,8 +40,8 @@ public class Stone : MonoBehaviour
     {
         if (_tearNum >= 5)
         {
+            CancelInvoke();
             _tearNum = 0;
-            CancelInvoke("StartCreatingTears");
         }
     }
 
@@ -52,6 +59,10 @@ public class Stone : MonoBehaviour
     private void CreateTear()
     {
         _tearNum++;
-        Instantiate(_tearsGo, roadsTrans[0]);
+        Debug.Log(roadsTrans[0]);
+        if (_tearsGo != null && roadsTrans[0] != null)
+        {
+            Instantiate(_tearsGo, roadsTrans[0].position,  Quaternion.identity);
+        }
     }
 }
