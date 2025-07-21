@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 
+/// gris移动
 /// </summary>
 public class NewBehaviourScript : MonoBehaviour
 {
