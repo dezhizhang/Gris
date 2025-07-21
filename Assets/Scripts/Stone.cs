@@ -23,7 +23,7 @@ public class Stone : MonoBehaviour
         // // 加载文件for
         _tearsGo = Resources.Load<GameObject>("Prefabs/Tear");
         Debug.Log(_tearsGo);
-        
+
         Transform pointTrans = transform.Find("Points");
         roadsTrans = new Transform[pointTrans.childCount];
 
@@ -59,10 +59,8 @@ public class Stone : MonoBehaviour
     private void CreateTear()
     {
         _tearNum++;
-        Debug.Log(roadsTrans[0]);
-        if (_tearsGo != null && roadsTrans[0] != null)
-        {
-            Instantiate(_tearsGo, roadsTrans[0].position,  Quaternion.identity);
-        }
+        GameObject go = Instantiate(_tearsGo, roadsTrans[0].position, Quaternion.identity);
+        Tear tear = go.GetComponent<Tear>();
+        tear.roadsTrans = roadsTrans;
     }
 }

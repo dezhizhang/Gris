@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 眼泪方法
+/// </summary>
 public class Tear : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // 所有的泪点
+    public Transform[] roadsTrans;
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
