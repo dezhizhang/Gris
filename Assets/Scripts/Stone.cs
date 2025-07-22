@@ -58,9 +58,10 @@ public class Stone : MonoBehaviour
     /// </summary>
     private void CreateTear()
     {
-        _tearNum++;
         GameObject go = Instantiate(_tearsGo, roadsTrans[0].position, Quaternion.identity);
         Tear tear = go.GetComponent<Tear>();
         tear.roadsTrans = roadsTrans;
+        tear.finalIndex = roadsTrans.Length - 1 - _tearNum;
+        _tearNum++;
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2680834302825800739}
   - component: {fileID: 7355843404529874469}
   - component: {fileID: 8805405393152346836}
+  - component: {fileID: 8991190970216851267}
   m_Layer: 0
   m_Name: Tear
   m_TagString: Untagged
@@ -189,3 +190,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8991190970216851267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537521039683791897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2fd09d3f3e449f385e37b7d929b218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadsTrans: []
