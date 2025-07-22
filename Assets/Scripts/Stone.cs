@@ -17,6 +17,9 @@ public class Stone : MonoBehaviour
     // 生成眼汨的数量
     private int _tearNum;
 
+    // 眼泪停止的数目
+    public int stopTearNum;
+
 
     private void Start()
     {
@@ -62,6 +65,7 @@ public class Stone : MonoBehaviour
         Tear tear = go.GetComponent<Tear>();
         tear.roadsTrans = roadsTrans;
         tear.finalIndex = roadsTrans.Length - 1 - _tearNum;
+        tear.stone = this;
         _tearNum++;
     }
 }
