@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// gris移动
 /// </summary>
-public class NewBehaviourScript : MonoBehaviour
+public class ScriptMove : MonoBehaviour
 {
   // 移动到空物体位置
   private Transform _transSp1;
