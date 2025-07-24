@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Stone : MonoBehaviour
 {
+    // 隐藏显示面板
     private GameObject _tearsGo;
     // 泪点的父对像
 
@@ -17,6 +18,10 @@ public class Stone : MonoBehaviour
     // 生成眼汨的数量
     private int _tearNum;
 
+    // 游戏物体组件
+    private GameObject _grisGo;
+
+    [HideInInspector]
     // 眼泪停止的数目
     public int stopTearNum;
 
@@ -25,7 +30,7 @@ public class Stone : MonoBehaviour
     {
         // // 加载文件for
         _tearsGo = Resources.Load<GameObject>("Prefabs/Tear");
-        Debug.Log(_tearsGo);
+
 
         Transform pointTrans = transform.Find("Points");
         roadsTrans = new Transform[pointTrans.childCount];
@@ -35,6 +40,7 @@ public class Stone : MonoBehaviour
             roadsTrans[i] = pointTrans.GetChild(i);
         }
 
+        _grisGo = GameObject.Find("Gris");
         // 定时生成眼
         Invoke("StartCreatingTears", 6);
     }
@@ -45,6 +51,15 @@ public class Stone : MonoBehaviour
         {
             CancelInvoke();
             _tearNum = 0;
+        }
+
+        if (stopTearNum >= 5)
+        {
+            _grisGo.AddComponent<Gris>();
+            // 重新设回刚体类型
+            _grisGo.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            // va
+            Destroy(this);
         }
     }
 

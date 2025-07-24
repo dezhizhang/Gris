@@ -25,11 +25,12 @@ public class Gris : MonoBehaviour
     private bool _isGrounded;
 
     // 跳跃的力
-    public float jumpForce;
+    private float _jumpForce;
 
     private void Start()
     {
         _moveSpeed = 5.0f;
+        _jumpForce = 3000.0f;
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -41,7 +42,7 @@ public class Gris : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             // _rb.AddForce(new Vector2(0, _moveSpeed)); 
-            _rb.AddForce(Vector2.up * jumpForce);
+            _rb.AddForce(Vector2.up * _jumpForce);
             _isGrounded = false;
         }
     }

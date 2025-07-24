@@ -58,6 +58,7 @@ public class Tear : MonoBehaviour
                     // 切换状态
                     notTargetMove = true;
                     transform.Rotate(new Vector3(0, 0, _rotateAngle * finalIndex));
+                    Destroy(gameObject, 15);
                     return;
                 }
             }
