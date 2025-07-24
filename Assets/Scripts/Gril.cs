@@ -9,6 +9,7 @@ public class Gril : MonoBehaviour
 
     // 移动速度
     private float _moveSpeed;
+
     // 刚体组件
     private Rigidbody2D _rb;
 
@@ -34,6 +35,7 @@ public class Gril : MonoBehaviour
         Vector2 moveDir = Vector2.right * _moveFactor;
         // 移动的速度
         Vector2 moveVelocity = moveDir * _moveSpeed;
-        _rb.velocity = moveVelocity;
+        Vector2 jumpVelocity = new Vector2(0, _rb.velocity.y);
+        _rb.velocity = moveVelocity + jumpVelocity;
     }
 }
