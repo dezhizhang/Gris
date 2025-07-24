@@ -20,6 +20,11 @@ public class Gris : MonoBehaviour
 
     // 精灵渲染组件
     private SpriteRenderer _spriteRenderer;
+
+    // 当前是否在地面
+    private bool _isGrounded;
+
+    // 跳跃的力
     public float jumpForce;
 
     private void Start()
@@ -33,10 +38,11 @@ public class Gris : MonoBehaviour
     private void Update()
     {
         _moveFactor = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && _isGrounded)
         {
-           // _rb.AddForce(new Vector2(0, _moveSpeed)); 
-           _rb.AddForce(Vector2.up * jumpForce);
+            // _rb.AddForce(new Vector2(0, _moveSpeed)); 
+            _rb.AddForce(Vector2.up * jumpForce);
+            _isGrounded = false;
         }
     }
 
@@ -64,5 +70,10 @@ public class Gris : MonoBehaviour
         _rb.velocity = moveVelocity + jumpVelocity;
         // 设置动画的值
         _animator.SetFloat("MoveX", Mathf.Abs(_rb.velocity.x));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _isGrounded = collision.gameObject.CompareTag("Ground");
     }
 }
